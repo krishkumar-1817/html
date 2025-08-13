@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Registration Form</title>
+</head>
+<body style="text-align: center;">
+  <h2>User Registration Form</h2>
+  <form id="regForm">
+    <label>Name:<br>
+      <input type="text" id="name" required>
+    </label><br><br>
+
+    <label>Email:<br>
+      <input type="text" id="email" required>
+    </label><br><br>
+
+    <label>Password:<br>
+      <input type="password" id="password" required>
+    </label><br><br>
+
+    <label>Phone:<br>
+      <input type="text" id="phone" required>
+    </label><br><br>
+
+    <label>Credit Card Number:<br>
+      <input type="text" id="creditCard" required placeholder="xxxx xxxx xxxx xxxx">
+    </label><br><br>
+
+    <input type="submit" value="Register">
+  </form>
+
+  <p id="output" style="color:red; white-space:pre;"></p>
+
+  <script>
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get values
+      let name = document.getElementById('name').value.trim();
+      let email = document.getElementById('email').value.trim();
+      let password = document.getElementById('password').value.trim();
+      let phone = document.getElementById('phone').value.trim();
+      let creditCard = document.getElementById('creditCard').value.trim();
+
+      // Regex patterns
+      let namePattern = /^[A-Za-z ]{3,50}$/;                    // 3-50 letters/spaces
+      let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;       // basic email pattern
+      let passPattern = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;        // min 6, 1 uppercase, 1 digit
+      let phonePattern = /^[0-9]{10}$/;                         // exactly 10 digits
+      let ccPattern = /^(\d{4}[- ]?){3}\d{4}$/;                 // 16 digits, spaces/dashes allowed
+
+      let msg = "";
+
+      // Custom validation
+      if (!namePattern.test(name)) msg += "Name: Only letters & spaces, length 3–50\n";
+      if (!emailPattern.test(email)) msg += "Email: Must be in valid format (example@domain.com)\n";
+      if (!passPattern.test(password)) msg += "Password: Min 6 chars, must contain at least 1 uppercase & 1 digit\n";
+      if (!phonePattern.test(phone)) msg += "Phone: Must be exactly 10 digits\n";
+      if (!ccPattern.test(creditCard)) msg += "Credit Card: Must be 16 digits (can have spaces or dashes)\n";
+
+      // Example of exec() usage
+      let result = phonePattern.exec(phone);
+      if (result) {
+        console.log("Phone number matched at index:", result.index);
+      }
+
+      // Show alert + inline result
+      if (msg) {
+        alert("This page says:\n" + msg);
+        document.getElementById('output').style.color = "red";
+        document.getElementById('output').textContent = msg;
+      } else {
+        alert("Registration successful!");
+        document.getElementById('output').style.color = "green";
+        document.getElementById('output').textContent = "Registration successful!";
+      }
+    });
+  </script>
+</body>
+</html>
