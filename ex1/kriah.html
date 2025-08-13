@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Reservation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #aaa;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Ticket Reservation System</h1>
+
+    <!-- Section: Available Tickets -->
+    <section>
+        <h2>Available Tickets</h2>
+
+        <h3>Train Tickets</h3>
+        <table>
+            <tr>
+                <th>Train No</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Seats Available</th>
+            </tr>
+            <tr>
+                <td>12045</td>
+                <td>New York</td>
+                <td>Boston</td>
+                <td>2025-08-05</td>
+                <td>35</td>
+            </tr>
+        </table>
+
+        <h3>Bus Tickets</h3>
+        <table>
+            <tr>
+                <th>Bus No</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Seats Available</th>
+            </tr>
+            <tr>
+                <td>BN88</td>
+                <td>Chicago</td>
+                <td>Detroit</td>
+                <td>2025-08-06</td>
+                <td>20</td>
+            </tr>
+        </table>
+
+        <h3>Movie Tickets</h3>
+        <table>
+            <tr>
+                <th>Movie Title</th>
+                <th>Theater</th>
+                <th>Show Time</th>
+                <th>Date</th>
+                <th>Seats Available</th>
+            </tr>
+            <tr>
+                <td>Avengers: Endgame</td>
+                <td>AMC Theater 5</td>
+                <td>7:30 PM</td>
+                <td>2025-08-07</td>
+                <td>50</td>
+            </tr>
+        </table>
+
+        <h3>Event Tickets</h3>
+        <table>
+            <tr>
+                <th>Event</th>
+                <th>Venue</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Tickets Left</th>
+            </tr>
+            <tr>
+                <td>Music Fest 2025</td>
+                <td>Central Park</td>
+                <td>2025-08-10</td>
+                <td>5:00 PM</td>
+                <td>150</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Section: Event Highlights/Rules -->
+    <section>
+        <h2>Event Highlights & Booking Rules</h2>
+        <ul>
+            <li>All bookings must be made at least 2 hours before the event.</li>
+            <li>Each user can reserve a maximum of 5 tickets per event.</li>
+            <li>Refunds available up to 24 hours before the event.</li>
+            <li>QR code will be sent to your email for entry verification.</li>
+            <li>Movie and event tickets are non-transferable.</li>
+        </ul>
+    </section>
+
+    <!-- Section: Reservation Form -->
+    <section>
+        <h2>Book Your Ticket</h2>
+        <form action="#" method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="ticket-type">Select Ticket Type:</label>
+            <select id="ticket-type" name="ticket-type" required>
+                <option value="">-- Select --</option>
+                <option value="train">Train</option>
+                <option value="bus">Bus</option>
+                <option value="movie">Movie</option>
+                <option value="event">Event</option>
+            </select>
+
+            <label for="quantity">Number of Tickets:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="5" required>
+
+            <label for="comments">Additional Comments:</label>
+            <textarea id="comments" name="comments" rows="4" placeholder="Optional"></textarea>
+
+            <button type="submit">Reserve Ticket</button>
+        </form>
+    </section>
+
+</body>
+</html>

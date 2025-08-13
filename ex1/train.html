@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train Booking</title>
+</head>
+<body style="font-family: Arial; background-image: url('train2.jpg');background-size: cover;background-repeat: no-repeat;">
+
+  <h1 style="text-align: center;">Train Ticket Booking</h1>
+
+  <form action="tic.html">
+    <table border="1" style="margin: 30px auto; border-collapse: collapse;" cellpadding="10">
+      <tr>
+        <td>From</td>
+        <td><input type="text" name="from" required></td>
+      </tr>
+      <tr>
+        <td>To</td>
+        <td><input type="text" name="to" required></td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td><input type="date" name="date" required></td>
+      </tr>
+      <tr>
+        <td>Class</td>
+        <td>
+          <select name="class" required>
+            <option value="">Select Class</option>
+            <option value="economy">Economy</option>
+            <option value="business">Business</option>
+            <option value="first">First Class</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <input type="submit" value="Book Now">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</body>
+</html>
